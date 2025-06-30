@@ -1,5 +1,5 @@
 packages:
-  - 'packages/*'
+  - packages/*
 
 catalogs:
   build:
@@ -51,10 +51,12 @@ catalogs:
     vue: ^3.5.17
     vue-i18n: ^11.1.7
     vue-router: ^4.5.1
+  tauri:
+    '@tauri-apps/cli': ^2.6.2
+
   types:
     '@types/markdown-it-link-attributes': ^3.0.5
     '@types/nprogress': ^0.2.3
-
 onlyBuiltDependencies:
   - cypress
   - esbuild
