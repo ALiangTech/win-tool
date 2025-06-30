@@ -1,8 +1,8 @@
 import type { Ctx, UserModule } from './types'
-
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './routers'
+import '@picocss/pico'
 
 import '@unocss/reset/tailwind.css'
 import './styles/main.css'
