@@ -4,7 +4,7 @@
   "private": false,
   "packageManager": "pnpm@10.12.4",
   "scripts": {
-    "dev": "vite --open",
+    "dev": "vite",
     "preview": "vite preview",
     "build": "vite build",
     "build:test": "vite build -m test",
@@ -13,7 +13,8 @@
     "test:e2e": "cypress open",
     "typecheck": "vue-tsc --noEmit",
     "up": "taze major -I",
-    "postinstall": "npx simple-git-hooks"
+    "postinstall": "npx simple-git-hooks",
+    "app": "tauri dev"
   },
   "dependencies": {
     "@unhead/vue": "catalog:frontend",
