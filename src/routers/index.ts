@@ -1,14 +1,15 @@
+import type { RouteRecordRaw } from 'vue-router'
 import { createMemoryHistory, createRouter } from 'vue-router'
 import Layout from './../layouts/home.vue'
-import HomeView from './../pages/index.vue'
+
+// 动态导入pages 下面的所有route文件
+const modules = import.meta.glob<RouteRecordRaw>('../pages/**/route.ts', { eager: true, import: 'default' })
 
 const routes = [
   {
     path: '/',
     component: Layout,
-    children: [
-      { path: '/', component: HomeView },
-    ],
+    children: Object.values(modules),
   },
 ]
 
