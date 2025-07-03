@@ -2,6 +2,9 @@ packages:
   - packages/*
 
 catalogs:
+  app:
+    electron: ^37.2.0
+
   build:
     '@intlify/unplugin-vue-i18n': ^6.0.8
     '@picocss/pico': ^2.1.1
@@ -52,11 +55,11 @@ catalogs:
     vue: ^3.5.17
     vue-i18n: ^11.1.7
     vue-router: ^4.5.1
-  tauri:
-    '@tauri-apps/cli': ^2.6.2
   types:
     '@types/markdown-it-link-attributes': ^3.0.5
     '@types/nprogress': ^0.2.3
+ignoredBuiltDependencies:
+  - electron
 
 onlyBuiltDependencies:
   - cypress
