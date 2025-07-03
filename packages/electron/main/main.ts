@@ -1,18 +1,30 @@
+import path from 'node:path'
+import process from 'node:process'
+import { fileURLToPath } from 'node:url'
 import { app, BrowserWindow } from 'electron'
+import workspace from './workspace/index'
 
-app.whenReady().then(() => {
-  const win = new BrowserWindow({
-    title: 'Main window',
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
+
+async function creatMainWindow() {
+  const win = new BrowserWindow ({
+    webPreferences: {
+      nodeIntegration: false,
+      contextIsolation: true, // 这个必须开启，才能用 contextBridge
+      preload: path.join(__dirname, 'preload.mjs'),
+    },
   })
 
   // You can use `process.env.VITE_DEV_SERVER_URL` when the vite command is called `serve`
-  // eslint-disable-next-line node/prefer-global/process
   if (process.env.VITE_DEV_SERVER_URL) {
-    // eslint-disable-next-line node/prefer-global/process
-    win.loadURL(process.env.VITE_DEV_SERVER_URL)
+    await win.webContents.loadURL(process.env.VITE_DEV_SERVER_URL)
   }
   else {
     // Load your file
-    win.loadFile('dist/index.html')
+    await win.webContents.loadFile('dist/index.html')
   }
-})
+  workspace(win) // 注册工作区
+}
+
+app.whenReady().then(() => creatMainWindow())

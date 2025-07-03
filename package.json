@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": false,
   "packageManager": "pnpm@10.12.4",
-  "main": "dist-electron/main.mjs",
+  "main": "dist-electron/main.js",
   "scripts": {
     "dev": "vite",
     "preview": "vite preview",
