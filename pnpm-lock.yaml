@@ -7,7 +7,7 @@ settings:
 catalogs:
   app:
     electron:
-      specifier: catalog:app
+      specifier: ^37.2.0
       version: 37.2.0
     vite-plugin-electron:
       specifier: ^0.29.0
