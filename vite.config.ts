@@ -11,6 +11,7 @@ import { VueRouterAutoImports } from 'unplugin-vue-router'
 import VueRouter from 'unplugin-vue-router/vite'
 import { defineConfig, mergeConfig } from 'vite'
 import { compression } from 'vite-plugin-compression2'
+import electron from 'vite-plugin-electron/simple'
 import { createHtmlPlugin } from 'vite-plugin-html'
 import { VitePWA } from 'vite-plugin-pwa'
 import VueDevTools from 'vite-plugin-vue-devtools'
@@ -127,6 +128,15 @@ export default defineConfig(({ command }) => {
               },
             },
           ],
+        },
+      }),
+      electron({
+        main: {
+          entry: 'packages/electron/main/main.ts',
+        },
+        preload: {
+          // Shortcut of `build.rollupOptions.input`
+          input: 'packages/electron/preload/preload.ts',
         },
       }),
     ],

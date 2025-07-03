@@ -4,6 +4,7 @@ packages:
 catalogs:
   app:
     electron: ^37.2.0
+    vite-plugin-electron: ^0.29.0
 
   build:
     '@intlify/unplugin-vue-i18n': ^6.0.8
