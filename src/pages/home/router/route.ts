@@ -1,17 +1,18 @@
 import type { RouteRecordRaw } from 'vue-router'
 import type { MenuItem } from '~/routers/route.type'
 
-export const folderMenuName = Symbol('folder')
+export const folderMenuName = Symbol('home')
+
 export const menu: MenuItem = {
   id: crypto.randomUUID(),
   name: folderMenuName,
   logo: 'logo',
-  label: '文件夹管理',
+  label: '首页',
   icon: 'icon-folder',
 }
 
 const route: RouteRecordRaw = {
-  path: '/folder',
+  path: '',
   name: folderMenuName,
   component: () => import('./../index.vue'),
 }

@@ -11,6 +11,7 @@ declare module 'vue' {
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
     TheFooter: typeof import('./components/TheFooter.vue')['default']
+    WtDialog: typeof import('./components/wt-dialog/index.vue')['default']
     WtDock: typeof import('./components/wt-dock/index.vue')['default']
   }
 }
