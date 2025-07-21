@@ -2,7 +2,7 @@ import path from 'node:path'
 import process from 'node:process'
 import { fileURLToPath } from 'node:url'
 import { app, BrowserWindow } from 'electron'
-import workspace from './workspace/index'
+import { install as workspace } from './workspace/index'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)

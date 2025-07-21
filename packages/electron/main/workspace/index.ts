@@ -8,12 +8,12 @@ interface View {
 const views: View = {}
 let currentView: WebContentsView
 
-export default function install(win: BrowserWindow) {
+export function install(win: BrowserWindow) {
   // 创建多个 BrowserView
-  views.page1 = new Electron.WebContentsView ()
+  views.page1 = new Electron.WebContentsView()
   views.page1.webContents.loadURL('https://www.doubao.com/').then()
 
-  views.page2 = new Electron.WebContentsView ()
+  views.page2 = new Electron.WebContentsView()
   views.page2.webContents.loadURL('https://www.electronjs.org/').then()
 
   function switchView(name: string) {
@@ -25,6 +25,7 @@ export default function install(win: BrowserWindow) {
     const [width, height] = win.getContentSize()
     currentView.setBounds({ x: 200, y: 0, width: width - 200, height }) // 留点侧边给 Vue 导航栏
   }
+
   // 监听win窗口变化，动态调整currentView的宽高
   win.on('resize', () => {
     const [width, height] = win.getContentSize()
@@ -33,10 +34,14 @@ export default function install(win: BrowserWindow) {
     }
   })
 
-  // 监听 Vue 发来的切换指
+  // 监听 Vue 发来的切换事件
   Electron.ipcMain.on('switch-view', (event, arg) => {
     if (views[arg]) {
       switchView(arg)
     }
+  })
+  // 监听 Vue 发来的关闭当前窗口事件
+  Electron.ipcMain.on('close-current-view', () => {
+    win.contentView.removeChildView(currentView)
   })
 }
