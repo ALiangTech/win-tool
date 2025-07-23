@@ -136,7 +136,19 @@ export default defineConfig(({ command }) => {
         },
         preload: {
           // Shortcut of `build.rollupOptions.input`
-          input: 'packages/electron/preload/preload.ts',
+          input: {
+            preload: 'packages/electron/preload/preload.ts',
+            workspace: 'packages/electron/preload/workspace.ts',
+          },
+          vite: {
+            build: {
+              rollupOptions: {
+                output: {
+                  inlineDynamicImports: false,
+                },
+              },
+            },
+          },
         },
       }),
     ],

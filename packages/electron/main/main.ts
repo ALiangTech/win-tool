@@ -24,7 +24,7 @@ async function creatMainWindow() {
     // Load your file
     await win.webContents.loadFile('dist/index.html')
   }
-  workspace(win) // 注册工作区
+  workspace() // 注册工作区
 }
 
 app.whenReady().then(() => creatMainWindow())

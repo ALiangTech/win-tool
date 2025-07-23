@@ -4,5 +4,6 @@
 import { contextBridge, ipcRenderer } from 'electron'
 
 contextBridge.exposeInMainWorld('e_workspace', {
-  openWorkSpaceWindow: (workspaceName: string) => ipcRenderer.send('open-workspace-window', workspaceName),
-})
+  switchView: (viewName: string) => ipcRenderer.send('switch-view', viewName),
+  closeCurrentView: () => ipcRenderer.send('close-current-view'),
+} as WorkSpace)

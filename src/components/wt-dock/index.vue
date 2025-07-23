@@ -14,6 +14,11 @@ function onTrigger(e: any) {
     return
   const index = Number.parseInt(li.dataset.index)
   const item = props.data[index] as MenuItem
+  if (item.type === 'workspace') {
+    // 打开新窗口
+    window.e_workspace.openWorkSpaceWindow('hashss')
+    return
+  }
   router.push({ name: item.name as any })
 }
 </script>
@@ -23,6 +28,7 @@ function onTrigger(e: any) {
     <ul class="flex gap-col-1 px-2 text-#fff" @click="onTrigger">
       <li v-for="(item, index) in props.data" :key="item.id" :data-index="index" class="cursor-pointer list-none">
         <svg class="iconpark-icon"><use href="#folder-open" /></svg>
+        <span class="text-sm">{{ item.label }}</span>
       </li>
     </ul>
   </section>

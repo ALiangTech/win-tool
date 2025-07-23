@@ -1,5 +1,5 @@
 import type { RouteRecordRaw } from 'vue-router'
-import { createMemoryHistory, createRouter } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import Layout from './../layouts/home.vue'
 
 // 动态导入pages 下面的所有route文件
@@ -12,9 +12,8 @@ const routes = [
     children: Object.values(modules),
   },
 ]
-
 const router = createRouter({
-  history: createMemoryHistory(),
+  history: createWebHistory(),
   routes,
 })
 

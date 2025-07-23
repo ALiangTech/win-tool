@@ -8,10 +8,11 @@ export const menu: MenuItem = {
   logo: 'logo',
   label: '文件夹管理',
   icon: 'icon-folder',
+  type: 'router',
 }
 
 const route: RouteRecordRaw = {
-  path: '/folder',
+  path: 'folder',
   name: folderMenuName,
   component: () => import('./../index.vue'),
 }

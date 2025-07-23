@@ -9,6 +9,7 @@ export const menu: MenuItem = {
   logo: 'logo',
   label: '首页',
   icon: 'icon-folder',
+  type: 'router',
 }
 
 const route: RouteRecordRaw = {
