@@ -148,3 +148,4 @@ vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
 /dist-electron/main.js
 /dist-electron/preload.mjs
+/dist-electron/

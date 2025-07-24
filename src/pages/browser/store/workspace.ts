@@ -9,6 +9,12 @@ export const useWorkspace = defineStore('workspace', () => {
       link: 'https://www.baidu.com',
       link_identity: 'page1',
     },
+    {
+      id: crypto.randomUUID(),
+      name: 'electron',
+      link: 'https://www.baidu.com',
+      link_identity: 'page2',
+    },
   ])
   function addNavItem(item: NavItem) {
     unref(navs).push(item)

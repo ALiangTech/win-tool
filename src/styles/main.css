@@ -31,3 +31,48 @@ html.dark {
   width: 1em;
   height: 1em;
 }
+
+/*  修改pico 变量*/
+:root,
+:host {
+  --pico-nav-element-spacing-vertical: 0;
+  --pico-nav-element-spacing-horizontal: 0;
+  --pico-font-size: 14px;
+}
+@media (min-width: 576px) {
+  :root,
+  :host {
+    --pico-font-size: 100%;
+  }
+}
+@media (min-width: 768px) {
+  :root,
+  :host {
+    --pico-font-size: 100%;
+  }
+}
+@media (min-width: 1024px) {
+  :root,
+  :host {
+    --pico-font-size: 100%;
+  }
+}
+@media (min-width: 1280px) {
+  :root,
+  :host {
+    --pico-font-size: 100%;
+  }
+}
+@media (min-width: 1536px) {
+  :root,
+  :host {
+    --pico-font-size: 16px;
+  }
+}
+a {
+  --pico-text-decoration: none;
+}
+a.secondary,
+a.contrast {
+  --pico-text-decoration: none;
+}

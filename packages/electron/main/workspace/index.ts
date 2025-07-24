@@ -29,7 +29,7 @@ export function install() {
     currentView = views[name]
     workspaceWin.contentView.addChildView(currentView)
     const [width, height] = workspaceWin.getContentSize()
-    currentView.setBounds({ x: 200, y: 0, width: width - 200, height }) // 留点侧边给 Vue 导航栏
+    currentView.setBounds({ x: 220, y: 0, width: width - 220, height }) // 留点侧边给 Vue 导航栏
   }
 
   // 监听 Vue 发来的切换事件
