@@ -1,4 +1,5 @@
 import type { BrowserWindow, WebContentsView } from 'electron'
+import type { NavItem } from '~/pages/browser/store/type'
 import path from 'node:path'
 import process from 'node:process'
 import { fileURLToPath } from 'node:url'
@@ -43,6 +44,25 @@ export function install() {
     workspaceWin.contentView.removeChildView(currentView)
   })
 
+  // 监听vue发来的初始化view
+  Electron.ipcMain.on('init-views', async (_, data: NavItem[]) => {
+    try {
+      await Promise.all(data.map(async (item) => {
+        const webView = new Electron.WebContentsView()
+        views[item.id] = webView
+        webView.webContents.on('page-favicon-updated', (_, [favicon]) => {
+          data.favicon = favicon
+        })
+        await views[item.id].webContents.loadURL(item.link)
+      }))
+      // 更新后添加了favicon的数据在发给vue
+      Electron.ipcMain.emit('init-views', data)
+    }
+    catch (e) {
+      console.error(e)
+    }
+  })
+
   // 打开新窗口 并且直接到workspace路由
   Electron.ipcMain.on('open-workspace-window', async (_) => {
     // 创建新窗口实例
@@ -61,7 +81,7 @@ export function install() {
     workspaceWin.on('resize', () => {
       const [width, height] = workspaceWin.getContentSize()
       if (currentView) {
-        currentView.setBounds({ x: 200, y: 0, width: width - 200, height }) // 留点侧边给 Vue 导航栏
+        currentView.setBounds({ x: 220, y: 0, width: width - 220, height }) // 留点侧边给 Vue 导航栏
       }
     })
   })

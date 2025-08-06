@@ -66,6 +66,7 @@ export default defineConfig(({ command }) => {
       // https://github.com/antfu/unplugin-vue-components
       Components({
         // allow auto load  components under `./src/components/`
+        dirs: ['./src/components', './src/pages/**/components'],
         extensions: ['vue'],
         // allow auto import and register components
         include: [/\.vue$/, /\.vue\?vue/],

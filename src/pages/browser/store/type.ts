@@ -3,4 +3,5 @@ export interface NavItem {
   name: string
   link: string // 网页链接
   link_identity: string // 链接标识 唯一
+  favicon: string | null // 图标
 }

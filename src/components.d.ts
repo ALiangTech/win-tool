@@ -13,5 +13,6 @@ declare module 'vue' {
     TheFooter: typeof import('./components/TheFooter.vue')['default']
     WtDialog: typeof import('./components/wt-dialog/index.vue')['default']
     WtDock: typeof import('./components/wt-dock/index.vue')['default']
+    WtList: typeof import('./pages/browser/components/wt-list/index.vue')['default']
   }
 }

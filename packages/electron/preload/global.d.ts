@@ -1,7 +1,7 @@
 interface WorkSpace {
   switchView: (viewName: string) => void
   closeCurrentView: () => void
-  openWorkSpaceWindow: (name: string) => void
+  initViews: (views: any) => void
 }
 
 type WorkSpaceEvent = keyof WorkSpace

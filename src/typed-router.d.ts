@@ -19,6 +19,7 @@ declare module 'vue-router/auto-routes' {
    */
   export interface RouteNamedMap {
     '/browser/': RouteRecordInfo<'/browser/', '/browser', Record<never, never>, Record<never, never>>,
+    '/browser/components/wt-list/': RouteRecordInfo<'/browser/components/wt-list/', '/browser/components/wt-list', Record<never, never>, Record<never, never>>,
     '/folder/': RouteRecordInfo<'/folder/', '/folder', Record<never, never>, Record<never, never>>,
     '/home/': RouteRecordInfo<'/home/', '/home', Record<never, never>, Record<never, never>>,
     '/home/widgets/quick-nav/': RouteRecordInfo<'/home/widgets/quick-nav/', '/home/widgets/quick-nav', Record<never, never>, Record<never, never>>,
